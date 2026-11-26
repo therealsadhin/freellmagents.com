@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 function LogoImage({
@@ -32,13 +33,13 @@ function LogoImage({
   }
 
   return (
-    // Dynamic provider domains can't be constrained to next/image remotePatterns.
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src={source}
       alt={`${providerName} logo`}
       width={44}
       height={44}
+      sizes="44px"
+      unoptimized
       referrerPolicy="no-referrer"
       className="h-11 w-11 object-contain"
       onError={() => setSourceIndex((index) => index + 1)}
