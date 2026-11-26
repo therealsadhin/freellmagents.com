@@ -70,7 +70,7 @@ export function SiteHeader() {
       {menuOpen && (
         <nav
           aria-label="Mobile navigation"
-          className="absolute top-full right-0 left-0 flex flex-col gap-1 border-b border-border bg-surface px-5 py-3 shadow-sm md:hidden"
+          className="absolute top-full right-5 left-5 z-50 flex flex-col gap-1 rounded-lg border border-border bg-popover px-3 py-3 text-popover-foreground shadow-md ring-1 ring-foreground/10 sm:left-auto sm:w-72 md:hidden"
         >
           {links.map((link) => (
             <Link
