@@ -1,0 +1,19 @@
+# FreeLLMAgents
+
+> Explore and compare AI models using reported capabilities, licensing, inference-provider availability, and published pricing.
+
+## Main pages
+
+- [AI model directory](https://freellmagents.com/): Browse and filter models by task, license, context window, provider availability, and reported pricing.
+- [AI model comparison](https://freellmagents.com/model-comparison): Compare model specifications and published provider pricing.
+- [AI cost calculator](https://freellmagents.com/cost-calculator): Estimate token costs using workload assumptions and published provider rates.
+- [Inference providers](https://freellmagents.com/providers): Learn how provider availability and specifications are reported.
+- [Model pricing](https://freellmagents.com/pricing): Learn how provider-specific rates are displayed.
+- [About FreeLLMAgents](https://freellmagents.com/about): Read about the directory and its upstream data sources.
+- [Contact](https://freellmagents.com/contact): Send a question, correction, or feedback.
+
+## Data notes
+
+- Model metadata and repository details come from Hugging Face Hub.
+- Where available, provider availability and pricing are supplemented from Hugging Face Inference Providers.
+- Upstream information can be incomplete or change. Confirm licensing and rates with the model publisher or provider.
