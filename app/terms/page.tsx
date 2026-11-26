@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ContentPage, ContentSection } from "@/components/content-page";
+import { createPageMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
-  title: "Terms of Service",
+export const metadata = createPageMetadata({
+  title: "FreeLLMAgents Terms of Service: Site Use and Limits",
   description:
-    "Terms and limitations for using the FreeLLMAgents model directory.",
-  alternates: { canonical: "/terms" },
-};
+    "Review terms and limits for using the FreeLLMAgents model directory, including model metadata, licenses, availability, and pricing. Confirm details before use.",
+  canonical: "/terms",
+});
 
 export default function TermsPage() {
   return (

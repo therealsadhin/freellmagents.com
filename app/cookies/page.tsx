@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ContentPage, ContentSection } from "@/components/content-page";
+import { createPageMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
-  title: "Cookie Policy",
+export const metadata = createPageMetadata({
+  title: "FreeLLMAgents Cookie Policy: Browser Storage Details",
   description:
-    "Cookie and browser storage information for the FreeLLMAgents website.",
-  alternates: { canonical: "/cookies" },
-};
+    "Learn whether FreeLLMAgents uses cookies or browser storage, what third-party services may process, and how to manage storage in your browser.",
+  canonical: "/cookies",
+});
 
 export default function CookiesPage() {
   return (

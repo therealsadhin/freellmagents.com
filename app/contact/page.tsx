@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact-form";
 import { ContentPage } from "@/components/content-page";
+import { createPageMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
-  title: "Contact",
+export const metadata = createPageMetadata({
+  title: "Contact FreeLLMAgents About the AI Model Directory",
   description:
-    "Contact the FreeLLMAgents team about the model directory or website.",
-  alternates: { canonical: "/contact" },
-};
+    "Contact FreeLLMAgents with questions, corrections, or feedback about AI model listings, provider availability, pricing details, or the website.",
+  canonical: "/contact",
+});
 
 export default function ContactPage() {
   return (

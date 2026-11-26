@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentPage, ContentSection } from "@/components/content-page";
+import { createPageMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata = createPageMetadata({
+  title: "About FreeLLMAgents: Explore AI Models and Provider Data",
   description:
-    "Learn how FreeLLMAgents helps people discover and compare AI models.",
-  alternates: { canonical: "/about" },
-};
+    "Learn how FreeLLMAgents organizes AI model specifications, reported licenses, provider availability, and pricing, including where directory data comes from.",
+  canonical: "/about",
+});
 
 export default function AboutPage() {
   return (

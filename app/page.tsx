@@ -1,18 +1,18 @@
 import { ModelExplorer } from "@/components/model-explorer";
+import { JsonLd } from "@/components/json-ld";
 import { getModels } from "@/lib/models";
+import { createPageMetadata } from "@/lib/seo-metadata";
+import { createWebPageStructuredData } from "@/lib/structured-data";
 
-export const metadata = {
-  title: "Explore AI models",
-  description:
-    "Compare AI models by capability, licensing, context, provider availability, and pricing.",
-  alternates: { canonical: "/" },
-  openGraph: {
-    title: "Explore AI models | FreeLLMAgents",
-    description:
-      "Compare AI models by capability, licensing, context, provider availability, and pricing.",
-    url: "/",
-  },
-};
+const pageTitle = "Free AI Model Directory and Comparison | FreeLLMAgents";
+const pageDescription =
+  "Explore AI models by task, license, context window, provider access, and reported pricing. Compare Hugging Face model data in the FreeLLMAgents directory.";
+
+export const metadata = createPageMetadata({
+  title: pageTitle,
+  description: pageDescription,
+  canonical: "/",
+});
 
 type SearchParams = {
   q?: string;
@@ -54,6 +54,13 @@ export default async function HomePage({
 
   return (
     <main className="mx-auto w-full max-w-[1720px] flex-1 px-5 pt-[41px] sm:px-7 lg:px-12">
+      <JsonLd
+        data={createWebPageStructuredData({
+          canonical: "/",
+          title: pageTitle,
+          description: pageDescription,
+        })}
+      />
       <h1 className="font-heading text-[clamp(3.35rem,6vw,5.55rem)] leading-[0.98] font-bold tracking-[-0.06em] text-foreground">
         Explore AI models
       </h1>

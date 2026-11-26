@@ -1,24 +1,18 @@
-import type { Metadata } from "next";
 import { ModelComparison } from "@/components/model-comparison";
+import { JsonLd } from "@/components/json-ld";
 import { getModels, type Model } from "@/lib/models";
+import { createPageMetadata } from "@/lib/seo-metadata";
+import { createWebPageStructuredData } from "@/lib/structured-data";
 
-export const metadata: Metadata = {
-  title: "Model Comparison",
-  description:
-    "Compare AI model specifications, capabilities, and published provider pricing side by side.",
-  alternates: { canonical: "/model-comparison" },
-  openGraph: {
-    title: "Model Comparison | FreeLLMAgents",
-    description:
-      "Compare model specifications, supported capabilities, and published token rates.",
-    url: "/model-comparison",
-  },
-  twitter: {
-    card: "summary",
-    title: "Model Comparison | FreeLLMAgents",
-    description: "Compare model specifications, capabilities, and published pricing.",
-  },
-};
+const pageTitle = "AI Model Comparison: Specs and Pricing | FreeLLMAgents";
+const pageDescription =
+  "Compare AI models by specifications, capabilities, context windows, reported licenses, inference providers, and published pricing in upstream catalogs.";
+
+export const metadata = createPageMetadata({
+  title: pageTitle,
+  description: pageDescription,
+  canonical: "/model-comparison",
+});
 
 export default async function ModelComparisonPage() {
   let initialModels: Model[] = [];
@@ -38,10 +32,19 @@ export default async function ModelComparisonPage() {
   }
 
   return (
-    <ModelComparison
-      initialModels={initialModels}
-      initialError={initialError}
-      initialWarnings={initialWarnings}
-    />
+    <>
+      <JsonLd
+        data={createWebPageStructuredData({
+          canonical: "/model-comparison",
+          title: pageTitle,
+          description: pageDescription,
+        })}
+      />
+      <ModelComparison
+        initialModels={initialModels}
+        initialError={initialError}
+        initialWarnings={initialWarnings}
+      />
+    </>
   );
 }

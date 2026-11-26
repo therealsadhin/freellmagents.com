@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentPage, ContentSection } from "@/components/content-page";
+import { createPageMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
-  title: "Inference Providers",
+export const metadata = createPageMetadata({
+  title: "AI Model Providers and Availability | FreeLLMAgents",
   description:
-    "Learn how FreeLLMAgents displays model availability across inference providers.",
-  alternates: { canonical: "/providers" },
-};
+    "See how FreeLLMAgents reports model availability, context limits, tool support, and provider-specific prices using the Hugging Face Inference Providers catalog.",
+  canonical: "/providers",
+});
 
 export default function ProvidersPage() {
   return (

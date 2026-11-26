@@ -1,24 +1,18 @@
-import type { Metadata } from "next";
 import { CostCalculator } from "@/components/cost-calculator";
+import { JsonLd } from "@/components/json-ld";
 import { getModels, type Model } from "@/lib/models";
+import { createPageMetadata } from "@/lib/seo-metadata";
+import { createWebPageStructuredData } from "@/lib/structured-data";
 
-export const metadata: Metadata = {
-  title: "AI Cost Analytics",
-  description:
-    "Understand, estimate, and optimize AI model spending with workload-based cost projections.",
-  alternates: { canonical: "/cost-calculator" },
-  openGraph: {
-    title: "AI Cost Analytics | FreeLLMAgents",
-    description:
-      "Estimate AI model spending using published provider token pricing.",
-    url: "/cost-calculator",
-  },
-  twitter: {
-    card: "summary",
-    title: "AI Cost Analytics | FreeLLMAgents",
-    description: "Estimate AI model spending with published provider rates.",
-  },
-};
+const pageTitle = "AI Model Cost Calculator: Usage Costs | FreeLLMAgents";
+const pageDescription =
+  "Estimate AI model token costs using your input, output, request, and usage assumptions. Compare published provider rates and review what each estimate excludes.";
+
+export const metadata = createPageMetadata({
+  title: pageTitle,
+  description: pageDescription,
+  canonical: "/cost-calculator",
+});
 
 export default async function CostCalculatorPage() {
   let initialModels: Model[] = [];
@@ -38,10 +32,19 @@ export default async function CostCalculatorPage() {
   }
 
   return (
-    <CostCalculator
-      initialModels={initialModels}
-      initialError={initialError}
-      initialWarnings={initialWarnings}
-    />
+    <>
+      <JsonLd
+        data={createWebPageStructuredData({
+          canonical: "/cost-calculator",
+          title: pageTitle,
+          description: pageDescription,
+        })}
+      />
+      <CostCalculator
+        initialModels={initialModels}
+        initialError={initialError}
+        initialWarnings={initialWarnings}
+      />
+    </>
   );
 }

@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentPage, ContentSection } from "@/components/content-page";
+import { createPageMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
-  title: "Model Pricing",
+export const metadata = createPageMetadata({
+  title: "AI Model Pricing and Provider Rates | FreeLLMAgents",
   description:
-    "Understand provider-specific model pricing shown in the FreeLLMAgents directory.",
-  alternates: { canonical: "/pricing" },
-};
+    "Learn how FreeLLMAgents displays provider AI model rates and token costs, where the pricing data comes from, and why rates should be confirmed with providers.",
+  canonical: "/pricing",
+});
 
 export default function PricingPage() {
   return (

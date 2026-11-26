@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ContentPage, ContentSection } from "@/components/content-page";
+import { createPageMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
+export const metadata = createPageMetadata({
+  title: "FreeLLMAgents Privacy Policy: Data and Service Details",
   description:
-    "Privacy information for FreeLLMAgents, including model lookups and contact messages.",
-  alternates: { canonical: "/privacy" },
-};
+    "Read how FreeLLMAgents processes model searches and contact messages, uses third-party model and email services, and handles browser storage and request data.",
+  canonical: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (
